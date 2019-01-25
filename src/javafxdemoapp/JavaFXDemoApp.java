@@ -24,7 +24,13 @@ public class JavaFXDemoApp extends Application {
         Button btn = new Button();
         btn.setText("Click me");
         btn.addEventHandler(ActionEvent.ACTION, 
-                            new MyButtonEventHandler());
+            new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    Button b = (Button) event.getSource();
+                    b.setText("Thank you");
+                }                
+            });
         
         StackPane root = new StackPane();
         root.getChildren().add(btn);
@@ -43,13 +49,4 @@ public class JavaFXDemoApp extends Application {
         launch(args);
     }
     
-}
-
-/** Package-protected event handler class **/
-class MyButtonEventHandler implements EventHandler<ActionEvent> {
-    @Override
-    public void handle(ActionEvent event) {
-        Button b = (Button) event.getSource();
-        b.setText("Thank you");
-    }
 }
