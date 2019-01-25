@@ -23,14 +23,10 @@ public class JavaFXDemoApp extends Application {
     public void start(Stage primaryStage) {
         Button btn = new Button();
         btn.setText("Click me");
-        btn.addEventHandler(ActionEvent.ACTION, 
-            new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    Button b = (Button) event.getSource();
-                    b.setText("Thank you");
-                }                
-            });
+        btn.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+            Button b = (Button) event.getSource();
+            b.setText("Thank you");
+        });
         
         StackPane root = new StackPane();
         root.getChildren().add(btn);
