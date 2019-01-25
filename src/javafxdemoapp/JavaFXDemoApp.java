@@ -23,7 +23,7 @@ public class JavaFXDemoApp extends Application {
     public void start(Stage primaryStage) {
         Button btn = new Button();
         btn.setText("Click me");
-        btn.addEventHandler(ActionEvent.ACTION, (ActionEvent event) -> {
+        btn.setOnAction(event -> {
             Button b = (Button) event.getSource();
             b.setText("Thank you");
         });
